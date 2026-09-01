@@ -1,1 +1,156 @@
+site_name: คู่มือ Frigate NVR ฉบับสมบูรณ์
+site_description: จากศูนย์สู่ระบบกล้องวงจรปิด AI ที่ใช้งานได้จริง — ฉบับปี 2026
+site_author: Your Name
+site_url: https://YOUR_USERNAME.github.io/frigate-book/
+repo_url: https://github.com/YOUR_USERNAME/frigate-book
+repo_name: frigate-book
+edit_uri: edit/main/docs/
 
+theme:
+  name: material
+  language: th
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: สลับเป็นโหมดมืด
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: สลับเป็นโหมดสว่าง
+  font:
+    text: Sarabun
+    code: JetBrains Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: "¶"
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.keys
+
+plugins:
+  - search:
+      lang:
+        - th
+        - en
+  - tags
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/YOUR_USERNAME
+  generator: false
+
+copyright: คู่มือ Frigate NVR ฉบับสมบูรณ์ — อัปเดตล่าสุด 2026
+
+nav:
+  - หน้าแรก: index.md
+
+  - "ภาค 1 — พื้นฐาน":
+      - "1. Frigate คืออะไร": 01-basics/01-what-is-frigate.md
+      - "2. สถาปัตยกรรมภายใน": 01-basics/02-architecture.md
+      - "3. แนวคิด Dual-Stream": 01-basics/03-dual-stream.md
+
+  - "ภาค 2 — เตรียมความพร้อม":
+      - "4. เลือกฮาร์ดแวร์": 02-prepare/04-hardware.md
+      - "5. เลือกและตั้งค่ากล้อง": 02-prepare/05-cameras.md
+      - "6. วางแผนพื้นที่จัดเก็บ": 02-prepare/06-storage.md
+
+  - "ภาค 3 — ติดตั้ง":
+      - "7. Docker Compose": 03-install/07-docker.md
+      - "8. Home Assistant / Proxmox": 03-install/08-ha-proxmox.md
+      - "9. go2rtc": 03-install/09-go2rtc.md
+
+  - "ภาค 4 — Config":
+      - "10. โครงสร้าง config.yml": 04-config/10-structure.md
+      - "11. Config เริ่มต้น": 04-config/11-starter-config.md
+      - "12. Detectors": 04-config/12-detectors.md
+      - "13. Zones, Masks, Filters": 04-config/13-zones-masks.md
+      - "14. Recording & Retention": 04-config/14-recording.md
+      - "15. Snapshots & Notifications": 04-config/15-snapshots.md
+
+  - "ภาค 5 — จูนให้เทพ":
+      - "16. ลด False Positive": 05-tuning/16-false-positive.md
+      - "17. จูนประสิทธิภาพ": 05-tuning/17-performance.md
+      - "18. Semantic Search & Face": 05-tuning/18-ai-features.md
+      - "19. LPR อ่านป้ายทะเบียน": 05-tuning/19-lpr.md
+
+  - "ภาค 6 — เชื่อมต่อระบบอื่น":
+      - "20. Home Assistant": 06-integration/20-home-assistant.md
+      - "21. MQTT": 06-integration/21-mqtt.md
+      - "22. Automation ที่ใช้จริง": 06-integration/22-automations.md
+
+  - "ภาค 7 — ดูแลระบบ":
+      - "23. Backup & Restore": 07-maintenance/23-backup.md
+      - "24. Troubleshooting 20 ข้อ": 07-maintenance/24-troubleshooting.md
+      - "25. อัปเกรดอย่างปลอดภัย": 07-maintenance/25-upgrade.md
+
+  - "ภาคผนวก":
+      - "A. Config พร้อมใช้ 3 แบบ": appendix/a-configs.md
+      - "B. คำสั่ง CLI": appendix/b-cli.md
+      - "C. ตารางเทียบ Detector": appendix/c-detector-table.md
+      - "D. Checklist ขึ้นระบบจริง": appendix/d-checklist.md
